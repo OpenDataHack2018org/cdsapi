@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha **/*.spec.ts",
     "build": "webpack",
-    "deploy": "tsc && npm run build && npm version patch && npm publish --access public"
+    "deploy": "tsc && npm run build && npm version patch && npm publish --access public && git push origin master"
   },
   "author": "Daniel Jabry <djabry@gmail.com>",
   "license": "MIT",
