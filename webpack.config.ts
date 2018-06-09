@@ -1,7 +1,7 @@
 import {resolve as resolvePath} from "path";
 export default {
     name: "standalone",
-    entry: resolvePath(__dirname, "cdsapi-standalone.ts"),
+    entry: resolvePath(__dirname, "index.ts"),
     output: {
         path: __dirname,
         filename: "cdsapi-standalone.js",

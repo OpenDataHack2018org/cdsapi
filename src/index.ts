@@ -5,3 +5,4 @@ export * from "./data.format";
 export * from "./data.options";
 export * from "./http.utils";
 export * from "./fixed.authentication.service";
+export * from "./environment.authentication.service";
