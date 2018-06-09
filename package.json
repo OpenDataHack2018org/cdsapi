@@ -1,6 +1,6 @@
 {
   "name": "@djabry/cdsapi",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Client for accessing the Copernicus data API",
   "main": "index.js",
   "scripts": {
