@@ -1,3 +1,3 @@
 export interface AuthenticationService {
-    getApiKey(): string;
+    getApiKey(): Promise<string>;
 }

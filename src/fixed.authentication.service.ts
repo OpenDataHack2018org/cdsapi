@@ -4,7 +4,7 @@ export class FixedAuthenticationService implements AuthenticationService {
     constructor(private apiKey: string) {
 
     }
-    getApiKey(): string {
+    async getApiKey(): Promise<string> {
         return this.apiKey;
     }
 }

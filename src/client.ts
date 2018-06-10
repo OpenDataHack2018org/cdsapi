@@ -37,7 +37,7 @@ export class Client {
     }
 
     async post(url: string, options: DataOptions): Promise<DataResponse> {
-        const apiKey = this.authenticationService.getApiKey();
+        const apiKey = await this.authenticationService.getApiKey();
         const result = await this.httpUtils.post<DataOptions, DataResponse>(url, options, apiKey);
         return result;
     }
