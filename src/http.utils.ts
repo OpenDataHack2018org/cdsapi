@@ -1,22 +1,41 @@
-import {GotJSONOptions, post, get} from "got";
-
+// import {GotJSONOptions, post, get} from "got";
+import axios from "axios";
 export class HttpUtils {
+
+    toAuthParam(auth: string): {username: string, password: string } {
+
+        if (!auth) {
+            return undefined;
+        }
+
+        const authParts = auth.split(":");
+        return {
+            username: authParts[0],
+            password: authParts[1]
+        };
+    }
+
     async post<I extends object = any, O = any>(url: string, payload?: I, auth?: string, headers?: any): Promise<O> {
-        const result = await post(url, {
-            body: JSON.stringify(payload),
+        const authParam = this.toAuthParam(auth);
+        const result = await axios({
+            method: "post",
+            url,
+            data: payload,
             headers,
-            auth
+            transformResponse: [response => this.toJson(response)],
+            auth: authParam
         });
-        return this.toJson(result.body);
+        return result.data;
     }
 
     async get<I extends object = any, O = any>(url: string, payload?: I, auth?: string, headers?: any): Promise<O> {
-        const result = await get(url, {
+        const authParam = this.toAuthParam(auth);
+        const result = await axios.get(url, {
             headers,
-            body: payload ? JSON.stringify(payload) : undefined,
-            auth
+            transformResponse: [response => this.toJson(response)],
+            auth: authParam
         });
-        return this.toJson(result.body);
+        return result.data;
     }
 
     // Fix any malformed JSON objects containing concat arrays
