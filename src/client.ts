@@ -8,7 +8,7 @@ import {JsonResult} from "./json.result";
 export class Client {
     constructor(private authenticationService: AuthenticationService,
                 private httpUtils: HttpUtils,
-                protected endpoint: string =  "https://cds.climate.copernicus.eu/api/v2",
+                protected endpoint: string =  "https://pchtci8328.execute-api.eu-west-1.amazonaws.com/prod",
                 protected sleepPeriod: number = 1000,
                 protected jsonEndpoint: string =
                     "https://ug3idxbga3.execute-api.eu-west-1.amazonaws.com/prod/convert") {
